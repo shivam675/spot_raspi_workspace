@@ -1,0 +1,145 @@
+{
+	"folders": [
+		{
+			"name": "main-workspace",
+			"path": "../../../../../main-workspace"
+		},
+		{
+			"name": "elxsi-ws",
+			"path": "../../../../../elxsi-ws"
+		},
+		{
+			"name": "eyrc_ws",
+			"path": "../../../../../eyrc_ws"
+		},
+		{
+			"name": "dnn_ws",
+			"path": "../../../../../dnn_ws"
+		},
+		{
+			"name": "random",
+			"path": "../../../../../random"
+		},
+		{
+			"name": "web_ws",
+			"path": "../../../../../web_ws"
+		},
+		{
+			"name": "ros2_ws",
+			"path": "../../../../../ros2_ws"
+		},
+		{
+			"name": "code",
+			"path": "../../../../../sdnd/code"
+		},
+		{
+			"name": "custom_ai",
+			"path": "../../../../../custom_ai"
+		},
+		{
+			"name": "entertainment_ws",
+			"path": "../../../../../entertainment_ws"
+		},
+		{
+			"name": "hardware_ws",
+			"path": "../../../.."
+		},
+		{
+			"name": "rl_ws",
+			"path": "../../../../../rl_ws"
+		}
+	],
+	"settings": {
+		"python.autoComplete.extraPaths": [
+			"/home/ros/eyrc_ws/devel/lib/python3/dist-packages",
+			"/home/ros/elxsi-ws/devel/lib/python3/dist-packages",
+			"/home/ros/dep-workspace/devel/lib/python3/dist-packages",
+			"/home/ros/main-workspace/devel/lib/python3/dist-packages",
+			"/opt/ros/noetic/lib/python3/dist-packages",
+			"/home/ros/LeapSDK/lib",
+			"/home/ros/LeapSDK/lib/x64"
+		],
+		"python.analysis.extraPaths": [
+			"/home/ros/eyrc_ws/devel/lib/python3/dist-packages",
+			"/home/ros/elxsi-ws/devel/lib/python3/dist-packages",
+			"/home/ros/dep-workspace/devel/lib/python3/dist-packages",
+			"/home/ros/main-workspace/devel/lib/python3/dist-packages",
+			"/opt/ros/noetic/lib/python3/dist-packages",
+			"/home/ros/LeapSDK/lib",
+			"/home/ros/LeapSDK/lib/x64"
+		],
+		"ros.distro": "noetic",
+		"files.associations": {
+			"*.sdf": "xml",
+			"cctype": "cpp",
+			"clocale": "cpp",
+			"cmath": "cpp",
+			"cstdarg": "cpp",
+			"cstddef": "cpp",
+			"cstdio": "cpp",
+			"cstdlib": "cpp",
+			"cstring": "cpp",
+			"ctime": "cpp",
+			"cwchar": "cpp",
+			"cwctype": "cpp",
+			"any": "cpp",
+			"array": "cpp",
+			"atomic": "cpp",
+			"bit": "cpp",
+			"*.tcc": "cpp",
+			"bitset": "cpp",
+			"chrono": "cpp",
+			"compare": "cpp",
+			"complex": "cpp",
+			"concepts": "cpp",
+			"cstdint": "cpp",
+			"deque": "cpp",
+			"forward_list": "cpp",
+			"list": "cpp",
+			"map": "cpp",
+			"set": "cpp",
+			"unordered_map": "cpp",
+			"unordered_set": "cpp",
+			"vector": "cpp",
+			"exception": "cpp",
+			"algorithm": "cpp",
+			"functional": "cpp",
+			"iterator": "cpp",
+			"memory": "cpp",
+			"memory_resource": "cpp",
+			"numeric": "cpp",
+			"optional": "cpp",
+			"random": "cpp",
+			"ratio": "cpp",
+			"string": "cpp",
+			"string_view": "cpp",
+			"system_error": "cpp",
+			"tuple": "cpp",
+			"type_traits": "cpp",
+			"utility": "cpp",
+			"hash_map": "cpp",
+			"hash_set": "cpp",
+			"fstream": "cpp",
+			"initializer_list": "cpp",
+			"iomanip": "cpp",
+			"iosfwd": "cpp",
+			"iostream": "cpp",
+			"istream": "cpp",
+			"limits": "cpp",
+			"mutex": "cpp",
+			"new": "cpp",
+			"ostream": "cpp",
+			"ranges": "cpp",
+			"sstream": "cpp",
+			"stdexcept": "cpp",
+			"stop_token": "cpp",
+			"streambuf": "cpp",
+			"thread": "cpp",
+			"cfenv": "cpp",
+			"cinttypes": "cpp",
+			"typeindex": "cpp",
+			"typeinfo": "cpp",
+			"variant": "cpp"
+		}
+	}
+}
