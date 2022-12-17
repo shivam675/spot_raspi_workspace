@@ -3,7 +3,7 @@ from time import sleep
 from adafruit_servokit import ServoKit
 import rospy
 from std_msgs.msg import Int32MultiArray
-from numba import jit
+# from numba import jit
 
 kit = ServoKit(channels=16)
 
