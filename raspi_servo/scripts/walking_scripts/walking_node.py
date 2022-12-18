@@ -8,16 +8,35 @@ import random
 import math
 from open_loop_walking_helper import OpenLoopWalking
 import numpy as np
+from scipy.interpolate import interp1d
+
+
 # from 
+# k = interp1d([-math.pi, math.pi], [-math.pi/2, math.pi/2])
+shoulder_inter = interp1d([-1.2, 1.2], [-1.04, 1.04])
+elbow_inter = interp1d([-((math.pi/2)+0.2), (math.pi/2)+0.2], [-1.04, 1.04])
+wrist_inter = interp1d([-0.2, math.pi+0.2], [0, 2.08])
 
 def main(motor_vals: np.array):
     msg = Int32MultiArray()
     # msg.data = random.randint(0, 180)
     # print(motor_vals)
+
+    # motor_vals -->> [fle, flw, fre, frw, rle, rlw, rre, rrw]
+
     motor_vals = motor_vals.tolist()
     # print(motor_vals)
-    msg.data = [abs(90 - int(math.degrees(i))) for i in motor_vals[0]]
-    print(msg.data)
+    
+    final_angles = []
+    for idx, val in enumerate(motor_vals[0]):
+        if idx in [2,8]: final_angles.append(int(math.degrees(wrist_inter(val))))
+        elif idx in [5,11]: final_angles.append(180 - int(math.degrees(wrist_inter(val))))
+        elif idx in [1,4,7,10] : final_angles.append(int(math.degrees(1.04 + elbow_inter(val))))
+        else: final_angles.append(int(math.degrees(1.04 + shoulder_inter(val))))
+
+    # print(final_angles)
+    msg.data = final_angles
+    # print(msg.data)
     publiser.publish(msg)
 
 
@@ -30,11 +49,19 @@ if __name__ == "__main__":
     publiser = rospy.Publisher('/hardware_actuator_node', Int32MultiArray, queue_size=1)
     current_time = 0
     temp_actions = np.zeros(8)
+
+    period = rospy.get_param('period', 1/8)
+    fa = rospy.get_param('fa', 0.2)
+    
+
     # counter = 0
     while not rospy.is_shutdown():
 
         start_time = rospy.Time.now().to_sec()
-        actions = walker_instance.open_loop_signal(current_time, temp_actions)
+
+        la = rospy.get_param('la', 0.1)
+        print(la)
+        actions = walker_instance.open_loop_signal(current_time, temp_actions, la)
         # print(actions)
 
         main(actions)

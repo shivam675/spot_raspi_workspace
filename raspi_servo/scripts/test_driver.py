@@ -4,7 +4,7 @@ import rospy
 from std_msgs.msg import Int32MultiArray
 import random
 from itertools import cycle
-k = cycle([2,175])
+k = cycle(list(range(0, 180, 5)) + list(range(180, 0, -5)))
 
 
 def test_driver_code():
@@ -20,7 +20,7 @@ def test_driver_code():
 
 if __name__ == '__main__':
     rospy.init_node('testing_driver', anonymous = True)
-    rate = rospy.Rate(1.5)
+    rate = rospy.Rate(30)
     rospy.sleep(1)
 
     pub = rospy.Publisher('/hardware_actuator_node', Int32MultiArray, queue_size=2)

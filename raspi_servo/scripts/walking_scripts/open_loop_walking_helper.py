@@ -6,9 +6,9 @@ import numpy as np
 
 class OpenLoopWalking:
 
-    def __init__(self) -> None:
+    def __init__(self, period = 1.0/8, la = 0.1, fa = 0.2) -> None:
 
-        self.period = 1.0/8
+        self.period = period
         self.goal_reached = False
 
         # walking init stance pose
@@ -21,9 +21,8 @@ class OpenLoopWalking:
 
         self.stay_still = False
         self.end_time = None
-        # self.la = 0.1
-        # self.fa = self.la * 2
-
+        self.la = la
+        self.fa = fa
 
 
     def evaluate_brakes_stage_coeff(self, current_t, action, end_t=0.0, end_value=0.0):
@@ -45,11 +44,11 @@ class OpenLoopWalking:
             return 1.0
     
 
-    def open_loop_signal(self, t, action):
+    def open_loop_signal(self, t, action, la):
 
         # print(self.la)
         # la = 0.1
-        la = 0.1
+        # la = 0.1
         fa = 2 * la
         if self.goal_reached:
             # print('goal_reacjed')
