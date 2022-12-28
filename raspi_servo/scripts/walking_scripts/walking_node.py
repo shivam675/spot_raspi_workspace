@@ -17,6 +17,8 @@ shoulder_inter = interp1d([-1.2, 1.2], [-1.04, 1.04])
 elbow_inter = interp1d([-((math.pi/2)+0.2), (math.pi/2)+0.2], [-1.04, 1.04])
 wrist_inter = interp1d([-0.2, math.pi+0.2], [0, 2.08])
 
+is_left = 1
+
 def main(motor_vals: np.array):
     msg = Int32MultiArray()
     # msg.data = random.randint(0, 180)
@@ -30,9 +32,14 @@ def main(motor_vals: np.array):
     final_angles = []
     for idx, val in enumerate(motor_vals[0]):
         if idx in [2,8]: final_angles.append(int(math.degrees(wrist_inter(val))))
+        elif idx in [0, 3, 6, 9]: final_angles.append(70)
         elif idx in [5,11]: final_angles.append(180 - int(math.degrees(wrist_inter(val))))
-        elif idx in [1,4,7,10] : final_angles.append(int(math.degrees(1.04 + elbow_inter(val))))
-        else: final_angles.append(int(math.degrees(1.04 + shoulder_inter(val))))
+        elif idx in [1] : final_angles.append(180 - int(math.degrees(1.04 + elbow_inter(val))) + 20)
+        elif idx in [7] : final_angles.append(180 - int(math.degrees(1.04 + elbow_inter(val))))
+        elif idx in [4,10] : final_angles.append(int(math.degrees(1.04 + elbow_inter(val))))
+        # else: final_angles.append(int(math.degrees(1.04 + shoulder_inter(val))))
+        # else: final_angles.append(90)
+        else:pass
 
     # print(final_angles)
     msg.data = final_angles
