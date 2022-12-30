@@ -20,7 +20,7 @@ def test_driver_code():
 
 if __name__ == '__main__':
     rospy.init_node('testing_driver', anonymous = True)
-    rate = rospy.Rate(30)
+    rate = rospy.Rate(20)
     rospy.sleep(1)
 
     pub = rospy.Publisher('/hardware_actuator_node', Int32MultiArray, queue_size=2)
